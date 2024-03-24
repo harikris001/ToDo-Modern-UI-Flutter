@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:todo/db/tasks_database.dart';
 import 'package:todo/utils/cutsom_snackbar.dart';
@@ -34,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
     db.updateData();
     db.todoList[index][1]
-        ? popupSnackBar("Task Completed 🎉", Colors.blue, context)
+        ? popupSnackBar("Task Completed 🎉", Colors.teal, context)
         : popupSnackBar("Task Unmarked ❗️", Colors.orange.shade400, context);
   }
 
@@ -55,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
           controller: _controller,
           onSave: onTaskSave,
           onCancel: () => Navigator.of(context).pop(),
+          content: 'Add New Task',
         );
       },
     );
@@ -82,6 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Navigator.of(context).pop();
             },
             onCancel: () => Navigator.of(context).pop(),
+            content: 'Edit Task',
           );
         });
   }
@@ -91,9 +92,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         appBar: AppBar(
           toolbarHeight: 80,
-          title: Text(
+          title: const Text(
             'Todo',
-            style: GoogleFonts.poppins(
+            style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.bold,
             ),
@@ -103,9 +104,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: creatNewTask,
-          child: const Icon(Icons.add),
+          child: const Icon(Icons.add_task),
         ),
-        backgroundColor: Colors.teal[200],
+        backgroundColor: Colors.indigo[200],
         body: ListView.builder(
           itemCount: db.todoList.length,
           itemBuilder: (context, index) {

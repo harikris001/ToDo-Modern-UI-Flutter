@@ -22,11 +22,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'To-Do',
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        primarySwatch: Colors.indigo,
         useMaterial3: false,
+        fontFamily: 'Poppins'
       ),
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen()
+      home: const HomeScreen(),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ToDoTile extends StatelessWidget {
   final String taskName;
@@ -60,7 +59,7 @@ class ToDoTile extends StatelessWidget {
               ),
               Text(
                 taskName,
-                style: GoogleFonts.poppins(
+                style: TextStyle(
                   decoration: taskStatus
                       ? TextDecoration.lineThrough
                       : TextDecoration.none,
